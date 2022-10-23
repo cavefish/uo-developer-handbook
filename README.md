@@ -12,6 +12,7 @@ and follow the structure for the [example project](projects/example/README.md).
 
 ## List of projects
 
-| Project name | Link to repository                                                   | Frontend  | Backend | Linux | Windows | MacOs |
-| ------------ |----------------------------------------------------------------------|-----------| --------- | --- | --- | --- |
-| [example project](projects/example/README.md) | [This repository](https://github.com/cavefish/uo-developer-handbook) | n/a       | n/a | n/a | n/a | n/a |
+| Project name                                     | Link to repository                                                   | Frontend  | Backend | Linux | Windows | MacOs   |
+|--------------------------------------------------|----------------------------------------------------------------------|-----------|---------|-------|---------|---------|
+| [example project](projects/example/README.md)    | [This repository](https://github.com/cavefish/uo-developer-handbook) | n/a       | n/a     | n/a   | n/a     | n/a     |
+| [Sphere Server](projects/sphereserver/README.md) | [Source code](https://github.com/Sphereserver/Source)                | n/a       | yes     | yes   | yes     | Unknown |
