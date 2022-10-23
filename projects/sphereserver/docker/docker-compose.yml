@@ -1,0 +1,7 @@
+version: '3.1'
+services:
+  sphereserver:
+    image: sphereserverx
+    build: .
+    ports:
+      - 2593:2593
