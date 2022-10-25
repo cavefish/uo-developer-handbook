@@ -1,18 +1,15 @@
 # syntax=docker/dockerfile:1
-FROM alpine:3.16.2
+FROM debian:stable-slim
 
 MAINTAINER Cavefish
 
 # Prepare for linux dependencies
-RUN apk update
-RUN apk add build-base dumb-init curl tar libc6-compat
+RUN apt update && apt install -y curl default-libmysqlclient-dev
 
 WORKDIR /sphereserver
 
 # Download last build of sourceX
 RUN curl -LJO https://ci.appveyor.com/api/buildjobs/em0qfu6h3fy6dx0g/artifacts/SphereSvrX-linux64-nightly.tar.gz
-
-RUN apk add mariadb-dev # WIP: add failing libraries
 
 # Uncompress
 RUN tar -C . -xzvf SphereSvrX-linux64-nightly.tar.gz \
