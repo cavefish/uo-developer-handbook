@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ed
+set -e
 
 docker build . -t sphereserverx --network=host
 
