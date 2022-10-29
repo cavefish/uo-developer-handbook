@@ -7,7 +7,7 @@ MAINTAINER Cavefish
 RUN apt update && \
     apt install -y curl wget
 
-WORKDIR /sphereserver
+WORKDIR /sphereserverx
 
 # Download last build of sourceX
 RUN curl -LJO https://ci.appveyor.com/api/buildjobs/em0qfu6h3fy6dx0g/artifacts/SphereSvrX-linux64-nightly.tar.gz
