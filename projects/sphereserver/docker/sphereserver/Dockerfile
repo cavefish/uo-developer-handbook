@@ -24,9 +24,11 @@ RUN apt upgrade && \
     apt install -y libmysqlclient-dev
 
 COPY --from=builder /sphereserver/Source/spheresvr /sphereserver/Source/src/*.ini /sphereserver/
+COPY run.sh /sphereserver/
 
 WORKDIR /sphereserver
+RUN mv Sphere.ini sphere.ini && chmod +x run.sh
 RUN ldd spheresvr # This checks that dependencies are ready
 
-CMD spheresvr
+CMD /sphereserver/run.sh
 EXPOSE 2593

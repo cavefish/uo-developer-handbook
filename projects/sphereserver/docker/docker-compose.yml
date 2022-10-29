@@ -2,6 +2,9 @@ version: '3.1'
 services:
   sphereserver:
     image: sphereserver
-    build: .
+    build: sphereserver/Dockerfile
     ports:
       - 2593:2593
+    environment:
+      - HOSTNAME=192.168.0.1
+      - SHARDNAME="This Shard's Name"
