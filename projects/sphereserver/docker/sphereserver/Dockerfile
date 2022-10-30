@@ -31,7 +31,7 @@ RUN apt upgrade && \
 
 COPY --from=builder /sphereserver/Source/spheresvr /sphereserver/Source/src/*.ini /sphereserver/
 COPY --from=builder /sphereserver/Scripts /sphereserver/scripts
-COPY run.sh /sphereserver/
+COPY run.sh empty.scp /sphereserver/
 
 WORKDIR /sphereserver
 RUN mv Sphere.ini sphere.ini && chmod +x run.sh

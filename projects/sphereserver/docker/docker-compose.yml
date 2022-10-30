@@ -5,6 +5,10 @@ services:
     stdin_open: true # docker run -i
     tty: true        # docker run -t
     build: sphereserver/Dockerfile
+    volumes:
+      - ${ULTIMA_MUL_PATH}:/sphereserver/mul:ro
+      - ./accounts:/sphereserver/accounts:rw
+      - ./save:/sphereserver/save:rw
     ports:
       - 2593:2593
     environment:
