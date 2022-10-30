@@ -12,5 +12,6 @@ services:
     ports:
       - 2593:2593
     environment:
-      - HOSTNAME=192.168.0.1
+      - HOSTNAME=$HOSTNAME
       - SHARDNAME="This Shard's Name"
+      - AUTO_ACCOUNT_CREATION=0
