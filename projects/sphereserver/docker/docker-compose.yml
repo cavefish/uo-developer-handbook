@@ -2,6 +2,8 @@ version: '3.1'
 services:
   sphereserver:
     image: sphereserver
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
     build: sphereserver/Dockerfile
     ports:
       - 2593:2593

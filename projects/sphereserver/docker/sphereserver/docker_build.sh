@@ -2,5 +2,5 @@
 
 set -e
 
-docker build . -t sphereserver --network=host --build-arg BRANCH=56c-20160410
+docker build . -t sphereserver --network=host --build-arg SOURCEBRANCH=56c-20160410 --build-arg SCRIPTSBRANCH=master
 

@@ -2,7 +2,8 @@
 FROM i386/ubuntu:18.04 AS builder
 
 MAINTAINER Cavefish
-ARG BRANCH
+ARG SOURCEBRANCH
+ARG SCRIPTSBRANCH
 
 # Prepare for linux dependencies
 RUN apt upgrade && \
@@ -11,10 +12,15 @@ RUN apt upgrade && \
 
 WORKDIR /sphereserver
 
-# Checkout the source code
-RUN git clone --depth 1 --branch $BRANCH https://github.com/SphereServer/Source.git
+# Build sourcecode
+RUN git clone --depth 1 --branch $SOURCEBRANCH https://github.com/SphereServer/Source.git
 WORKDIR /sphereserver/Source
 RUN make NIGHTLY=1
+
+# Checkout last version of base scripts
+WORKDIR /sphereserver
+RUN git clone --depth 1 --branch $SCRIPTSBRANCH https://github.com/SphereServer/Scripts.git
+
 
 FROM i386/ubuntu:18.04
 
@@ -24,6 +30,7 @@ RUN apt upgrade && \
     apt install -y libmysqlclient-dev
 
 COPY --from=builder /sphereserver/Source/spheresvr /sphereserver/Source/src/*.ini /sphereserver/
+COPY --from=builder /sphereserver/Scripts /sphereserver/scripts
 COPY run.sh /sphereserver/
 
 WORKDIR /sphereserver
